@@ -61,7 +61,7 @@ we'll just refer to this as the `public` folder.
 
 :question: Answer question *4* and *5* and *6* [QUESTIONS](./LABTASKS.md#questions)
 
-##Questions
+## Questions
 
 :question: *1* What is the purpose of `.gitignore`?
 
