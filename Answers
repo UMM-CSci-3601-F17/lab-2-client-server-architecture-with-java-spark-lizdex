@@ -1,0 +1,9 @@
+1) Its purpose is to determine which files to ignore when makind a commit.
+The role of Gradle is to define, manage, and run tasks, and
+The purpose of Tracvis-CI is to perform builds of a project every time a push is made to Github.
+
+2) A route is
+
+3)
+For "/users" there is a button to get all users, and an input bar where an age can be entered.
+For "/api/users" we can see the Json code for the users info.
