@@ -126,6 +126,8 @@ processing like Travis-CI.)
 
 ## Continuous Integration with Travis CI
 
+Hi
+
 [Travis CI][travis] is a Continuous Integration tool that performs 
 builds of your project every time you push to GitHub. 
 This is very helpful, as it makes keeping track of your testing 
