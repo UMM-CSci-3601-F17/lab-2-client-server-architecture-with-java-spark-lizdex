@@ -2,8 +2,21 @@
 The role of Gradle is to define, manage, and run tasks, and
 The purpose of Tracvis-CI is to perform builds of a project every time a push is made to Github.
 
-2) A route is
+2) A route is defined as info that is usde to make a decision about how to forward a packet so that it will reach its intended destination network.
 
-3)
+3) The purpose of umm3601.Server class is to gather a request from the user/client and send a response back.
+The purpose of umm3601.UserControler class is to send a request and recieve a response.
 For "/users" there is a button to get all users, and an input bar where an age can be entered.
 For "/api/users" we can see the Json code for the users info.
+For "/api/users?age=25" tells it was a success and gives the info for users that have an age of 25.
+For "/api/users/588935f5de613130e931ffd5" we can see the info for the specific user with the id number 588935f5de613130e931ffd5
+
+4) It contains the HTML, CSS, and JavaScript files to construct the very simple client-side web app.
+The HTML constructs the content that goes onto the page.
+
+5) The client sends a request to the server and filters user by age on the client side.
+The read from the web page is the number we put, and the request sent to the server is to get all users.
+All users are received and it only displays the users that have the age requested above the input bar.
+
+6)It's defined in the src/main/resources/public/javascript folder, and it's called users.js.
+
