@@ -4,8 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import spark.Request;
 import spark.Response;
-import umm3601.user.Database;
-import umm3601.user.User;
 
 import static umm3601.Util.buildFailJsonResponse;
 import static umm3601.Util.buildSuccessJsonResponse;
@@ -13,10 +11,10 @@ import static umm3601.Util.buildSuccessJsonResponse;
 /**
  * Controller that manages requests for info about users.
  */
-public class TodoUserController {
+public class TodoController {
 
   private final Gson gson;
-  private Database database;
+  private TodoDatabase tododatabase;
 
   /**
    * Construct a controller for users.
@@ -25,11 +23,11 @@ public class TodoUserController {
    * stores that internally so that (subsets of) users can be returned
    * in response to requests.
    *
-   * @param database the database containing user data
+   * @param tododatabase the database containing user data
    */
-  public TodoUserController(Database database) {
+  public TodoController(TodoDatabase tododatabase) {
     gson = new Gson();
-    this.database = database;
+    this.tododatabase = tododatabase;
   }
 
   /**
@@ -40,14 +38,14 @@ public class TodoUserController {
    * @return a success JSON object if the user with that ID is found, a fail
    * JSON object if no user with that ID is found
    */
-  public JsonObject getUser(Request req, Response res) {
+  public JsonObject getTodo(Request req, Response res) {
     res.type("application/json");
     String id = req.params("id");
-    User user = database.getUser(id);
-    if (user != null) {
-      return buildSuccessJsonResponse("user", gson.toJsonTree(user));
+    Todo todo = tododatabase.getTodo(id);
+    if (todo != null) {
+      return buildSuccessJsonResponse("todo", gson.toJsonTree(todo));
     } else {
-      String message = "User with ID " + id + " wasn't found.";
+      String message = "Todo with ID " + id + " wasn't found.";
       return buildFailJsonResponse("id", message);
     }
   }
@@ -59,10 +57,10 @@ public class TodoUserController {
    * @param res the HTTP response
    * @return a success JSON object containing all the users
    */
-  public JsonObject getUsers(Request req, Response res) {
+  public JsonObject getTodos(Request req, Response res) {
     res.type("application/json");
-    User[] users = database.listUsers(req.queryMap().toMap());
-    return buildSuccessJsonResponse("users", gson.toJsonTree(users));
+    Todo[] todos = tododatabase.listTodos(req.queryMap().toMap());
+    return buildSuccessJsonResponse("todos", gson.toJsonTree(todos));
   }
 
 }

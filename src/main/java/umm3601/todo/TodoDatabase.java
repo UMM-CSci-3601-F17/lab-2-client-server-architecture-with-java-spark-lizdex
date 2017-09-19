@@ -20,9 +20,9 @@ public class TodoDatabase {
 
   private Todo[] allTodos;
 
-  public TodoDatabase(String userDataFile) throws IOException {
+  public TodoDatabase(String todoDataFile) throws IOException {
     Gson gson = new Gson();
-    FileReader reader = new FileReader(userDataFile);
+    FileReader reader = new FileReader(todoDataFile);
     allTodos = gson.fromJson(reader, Todo[].class);
   }
 
@@ -38,31 +38,12 @@ public class TodoDatabase {
     return Arrays.stream(allTodos).filter(x -> x._id.equals(id)).findFirst().orElse(null);
   }
 
-  /**
 
-  public Todo[] listUsers(Map<String, String[]> queryParams) {
-    Todo[] filteredUsers = allTodos;
 
-    // Filter age if defined
-    if(queryParams.containsKey("age")) {
-      int targetAge = Integer.parseInt(queryParams.get("age")[0]);
-      filteredUsers = filterUsersByAge(filteredTodos, targetAge);
-    }
-    // Process other query parameters here...
+  public Todo[] listTodos(Map<String, String[]> queryParams) {
+    Todo[] filteredTodos = allTodos;
+    return filteredTodos;
 
-    return filteredUsers;
   }
-
-  /**
-   * Get an array of all the users having the target age.
-   *
-   * @param users the list of users to filter by age
-   * @param targetAge the target age to look for
-   * @return an array of all the users from the given list that have
-   * the target age
-
-  public User[] filterUsersByAge(User[] users, int targetAge) {
-    return Arrays.stream(users).filter(x -> x.age == targetAge).toArray(User[]::new);
-  }*/
 
 }
