@@ -1,11 +1,11 @@
-1) Its purpose is to determine which files to ignore when makind a commit.
+1) Its purpose is to determine which files to ignore when making a commit.
 The role of Gradle is to define, manage, and run tasks, and
-The purpose of Tracvis-CI is to perform builds of a project every time a push is made to Github.
+The purpose of Travis-CI is to perform builds of a project every time a push is made to Github.
 
-2) A route is defined as info that is usde to make a decision about how to forward a packet so that it will reach its intended destination network.
+2) A route is defined as info that is used to make a decision about how to forward a packet so that it will reach its intended destination network.
 
 3) The purpose of umm3601.Server class is to gather a request from the user/client and send a response back.
-The purpose of umm3601.UserControler class is to send a request and recieve a response.
+The purpose of umm3601.UserController class is to send a request and receive a response.
 For "/users" there is a button to get all users, and an input bar where an age can be entered.
 For "/api/users" we can see the Json code for the users info.
 For "/api/users?age=25" tells it was a success and gives the info for users that have an age of 25.
