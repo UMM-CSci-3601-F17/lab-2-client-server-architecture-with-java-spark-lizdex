@@ -1,13 +1,10 @@
 package umm3601.todo;
 
+// Built class Todo
 public class Todo {
   String _id;
   String owner;
-  int status;
+  Boolean status;
   String body;
   String category;
-
-  public String getOwner() {
-    return owner;
-  }
 }

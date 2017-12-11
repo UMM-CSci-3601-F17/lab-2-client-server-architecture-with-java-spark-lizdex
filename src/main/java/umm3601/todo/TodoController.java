@@ -17,13 +17,13 @@ public class TodoController {
   private TodoDatabase tododatabase;
 
   /**
-   * Construct a controller for users.
+   * Construct a controller for todos.
    *
    * This loads the "database" of user info from a JSON file and
    * stores that internally so that (subsets of) users can be returned
    * in response to requests.
    *
-   * @param tododatabase the database containing user data
+   * @param tododatabase the database containing todo data
    */
   public TodoController(TodoDatabase tododatabase) {
     gson = new Gson();
@@ -49,6 +49,19 @@ public class TodoController {
       return buildFailJsonResponse("id", message);
     }
   }
+/** Attempted search by owner using query parameters, but set up not correctly.
+  public JsonObject getTodosByOwner(Request req, Response res) {
+    res.type("application/json");
+    String owner = req.queryParams("owner");
+    Todo[] todos = tododatabase.getTodosByOwner(owner);
+    if (todos != null) {
+      return buildSuccessJsonResponse("todo", gson.toJsonTree(todos));
+    } else {
+      String message = "Todo with owner " + owner + " wasn't found.";
+      return buildFailJsonResponse("owner", message);
+    }
+  }
+*/
 
   /**
    * Get a JSON response with a list of all the users in the "database".

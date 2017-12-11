@@ -1,0 +1,92 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Todos</title>
+    <script type="text/javascript" src="javascript/todos.js"> </script>
+    <style>
+      .orderButton {
+        height:40px;
+        width:80px;
+      }
+    </style>
+
+  <body>
+  <a href="/">Back to Home</a>
+  <button type="button" id="getAll">Get All Todos</button>
+  <button type="button" id="clear">Clear Data Field</button>
+
+  <hr/>
+  <h1 style="text-align:center;">Todos Search Deck</h1>
+
+  <div style="padding-left:50px;padding-bottom:10px;">
+    ID: <input id="id" type= "text" style="margin-left:100px;">
+    <button type="button" style="width:300px;" id="getTodoById"> Get todos by ID </button>
+  </div>
+  <div style="padding-left:50px;padding-bottom:10px;">
+    Owner: <input id="owner" type= "text" style="margin-left:66px;">
+    <button type="button" style="width:300px;" id="getTodosByOwner"> Search todos that belong to this owner </button>
+  </div>
+  <div style="padding-left:50px;padding-bottom:10px;">
+    Status: <input id="status" type= "text" style="margin-left:69px;" disabled>
+    <button type="button" style="width:140px;margin-right:15px;" id="getTodosByTrue"> Complete </button>
+    <button type="button" style="width:140px;" id="getTodosByFalse"> Incomplete </button>
+  </div>
+  <div style="padding-left:50px;padding-bottom:10px;">
+    Contains: <input id="body" type= "text" style="margin-left:49px;">
+    <button type="button" style="width:300px;" id="getTodosByBody"> Search todos that contains this content </button>
+  </div>
+  <div style="padding-left:50px;padding-bottom:10px;">
+    Category: <input id="category" type= "text" style="margin-left:47px;">
+    <button type="button" style="width:300px;" id="getTodosByCategory"> Search todos that belong to this category </button>
+  </div>
+  <div style="padding-left:50px;padding-bottom:10px;">
+    Term Limit: <input id="limit" type= "text" style="margin-left:35px;">
+    <button type="button" style="width:300px;" id="getTodosByLimit"> Set up searching limit </button>
+  </div>
+  <div style="padding-left:50px;padding-bottom:10px;">
+    Order by: <button type="button" style="margin-left:70px;" class="orderButton" onclick="orderByOwner()"> Owner </button>
+    <button type="button" style="margin-left:35px;" class="orderButton" onclick="orderByCategory()"> Category </button>
+    <button type="button" style="margin-left:35px;" class="orderButton" onclick="orderByStatus()"> Status </button>
+    <button type="button" style="margin-left:35px;" class="orderButton" onclick="orderByBody()"> Body </button>
+
+  </div>
+
+  <hr/>
+  <div id="jsonDump" style="margin-top:20px;padding-left:50px;padding-right:50px;"> Data Field </div>
+
+
+  <script>
+    window.onload = function() {
+      console.log("The page is loaded now!");
+
+      var element = document.getElementById('getAll');
+      element.addEventListener("click", getAllTodos, true);
+
+      element = document.getElementById('clear');
+      element.addEventListener("click", clearDataField, true);
+
+      element = document.getElementById('getTodosByOwner');
+      element.addEventListener("click", getAllTodosByOwner, true);
+
+      element = document.getElementById('getTodoById');
+      element.addEventListener("click", getTodoById, true);
+
+      element = document.getElementById('getTodosByBody');
+      element.addEventListener("click", getAllTodosByBody, true);
+
+      element = document.getElementById('getTodosByTrue');
+      element.addEventListener("click", getAllTodosByTrue, true);
+
+      element = document.getElementById('getTodosByFalse');
+      element.addEventListener("click", getAllTodosByFalse, true);
+
+      element = document.getElementById('getTodosByCategory');
+      element.addEventListener("click", getAllTodosByCategory, true);
+
+      element = document.getElementById('getTodosByLimit');
+      element.addEventListener("click", getAllTodosByLimit, true);
+    }
+  </script>
+  </body>
+  </html>

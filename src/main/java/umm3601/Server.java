@@ -38,20 +38,25 @@ public class Server {
     // Redirects to create simpler URLs
     redirect.get("/about", "/about.html");
     redirect.get("/users", "/users.html");
-    redirect.get("/todos", "/todos.html");
+    redirect.get("/todos", "/todos.html"); // set up the html route for todos
     redirect.get("/index", "/index.html");
 
     // API endpoints
+    // API endpoints for users
 
     // Get specific user
     get("api/users/:id", userController::getUser);
     // List users, filtered using query parameters
     get("api/users", userController::getUsers);
 
+    // API endpoints for todos
+
+    // Get specific todo by searching its id
     get("api/todos/:id", todoController::getTodo);
+    // List of todos, filtered with query parameters
     get("api/todos", todoController::getTodos);
-    // An example of throwing an unhandled exception so you can see how the
-    // Java Spark debugger displays errors like this.
+
+    // Throw error API
     get("api/error", (req, res) -> {
       throw new RuntimeException("A demonstration error");
     });
@@ -91,6 +96,10 @@ public class Server {
 
     return userController;
   }
+
+  /**
+   * Added TodoController builder
+   */
   private static TodoController buildTodoController() {
     TodoController todoController = null;
 
